@@ -9,7 +9,7 @@ public class ControladorSIAPJ {
 	public ControladorSIAPJ(IValidadorProcesso validador, IRepositorioProcessos repositorio,
 			IServicoEmail emailTrue, IServicoEmail emailFalse){
 		validador_ = validador;
-		repositorio_ =  repositorio;
+		repositorio_ = repositorio;
 		emailTrue_ = emailTrue;
 		emailFalse_ = emailFalse;
 	}
