@@ -1,4 +1,8 @@
 import junit.framework.TestCase;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 public class TesteControlador extends TestCase {
 
@@ -9,10 +13,20 @@ public class TesteControlador extends TestCase {
 		proc.setNomeReclamante("João");
 		proc.setContent("Sequestraram meu amigo imaginário.");
 		proc.setTelefone("0123456789");
-		//Não setou email - é pra dar errado
-		ControladorSIAPJ contr = new ControladorSIAPJ(new ValidadorGian(),
-				new RepositorioGian(),new EmailGianTrue(), new EmailGianFalse());
-		assertFalse(contr.initProcesso(proc));
+		//Não setou email
+		
+		IValidadorProcesso validador = mock(ValidadorGian.class);
+		IRepositorioProcessos repositorio = mock(RepositorioProcessos.class);
+		IServicoEmail emailAceito = mock(ServicoEmailProcAceito.class);
+		IServicoEmail emailNaoAceito = mock(ServicoEmailProcNaoAceito.class);
+		
+		ControladorSIAPJ contr = new ControladorSIAPJ(validador, repositorio, emailAceito, 
+				emailNaoAceito);
+		contr.initProcesso(proc);
+		verify(validador, times(1)).validateProcess(proc);
+		verify(repositorio, never()).addProcesso(proc);
+		verify(emailAceito, never()).sendEmail(proc.getEmail());
+		verify(emailNaoAceito, times(1)).sendEmail(proc.getEmail());
 	}
 	
 	public void testCerto(){
@@ -21,8 +35,18 @@ public class TesteControlador extends TestCase {
 		proc.setContent("Roubaram meu chinelo.");
 		proc.setTelefone("99999999");
 		proc.setEmail("roberto@gmail.com");
-		ControladorSIAPJ contr = new ControladorSIAPJ(new ValidadorGian(), new RepositorioGian(),
-				new EmailGianTrue(), new EmailGianFalse());
-		assertTrue(contr.initProcesso(proc));
+		
+		IValidadorProcesso validador = mock(ValidadorGian.class);
+		IRepositorioProcessos repositorio = mock(RepositorioProcessos.class);
+		IServicoEmail emailAceito = mock(ServicoEmailProcAceito.class);
+		IServicoEmail emailNaoAceito = mock(ServicoEmailProcNaoAceito.class);
+		
+		ControladorSIAPJ contr = new ControladorSIAPJ(validador, repositorio, emailAceito, 
+				emailNaoAceito);
+		contr.initProcesso(proc);
+		verify(validador, times(1)).validateProcess(proc);
+		verify(repositorio, times(1)).addProcesso(proc);
+		verify(emailAceito, times(1)).sendEmail(proc.getEmail());
+		verify(emailNaoAceito, never()).sendEmail(proc.getEmail());
 	}
 }
