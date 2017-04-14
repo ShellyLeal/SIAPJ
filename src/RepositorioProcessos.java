@@ -1,5 +1,13 @@
 import java.util.HashMap;
 
+<<<<<<< HEAD
+public interface RepositorioProcessos {
+
+	public boolean addProcesso(Processo processo);
+	
+	public Processo getProcesso(int id);
+	
+=======
 public class RepositorioProcessos {
 	
 	HashMap <Integer, Processo> repositorio = new HashMap <Integer, Processo>();
@@ -23,4 +31,5 @@ public class RepositorioProcessos {
 		}
 		else return null;
 	}
+>>>>>>> 04b9660670706e72179000758e277402d18c4c51
 }

@@ -1,16 +1,17 @@
 import junit.framework.TestCase;
 
-
 public class TesteControlador extends TestCase {
 
+	/* Testes vão dar errado com classes Gian, que aceitam tudo, por favor mude aqui!!!! */
 	
 	public void testErrado(){
 		Processo proc = new Processo();
-		proc.setNomeReclamante("Roberto");
-		proc.setContent("Roubaram meu chinelo.");
-		proc.setTelefone("99999999");
-		//Não setou email
-		ControladorSIAPJ contr = new ControladorSIAPJ();
+		proc.setNomeReclamante("João");
+		proc.setContent("Sequestraram meu amigo imaginário.");
+		proc.setTelefone("0123456789");
+		//Não setou email - é pra dar errado
+		ControladorSIAPJ contr = new ControladorSIAPJ(new ValidadorGian(), new RepositorioGian(),
+				new EmailGianTrue(), new EmailGianFalse());
 		assertFalse(contr.initProcesso(proc));
 	}
 	
@@ -20,9 +21,13 @@ public class TesteControlador extends TestCase {
 		proc.setContent("Roubaram meu chinelo.");
 		proc.setTelefone("99999999");
 		proc.setEmail("roberto@gmail.com");
-		ControladorSIAPJ contr = new ControladorSIAPJ();
+		ControladorSIAPJ contr = new ControladorSIAPJ(new ValidadorGian(), new RepositorioGian(),
+				new EmailGianTrue(), new EmailGianFalse());
 		assertTrue(contr.initProcesso(proc));
 	}
+<<<<<<< HEAD
+=======
 	
 	
+>>>>>>> 04b9660670706e72179000758e277402d18c4c51
 }
