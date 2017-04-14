@@ -24,4 +24,5 @@ public class TesteControlador extends TestCase {
 		assertTrue(contr.initProcesso(proc));
 	}
 	
+	
 }
