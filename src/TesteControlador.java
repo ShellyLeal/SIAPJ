@@ -25,4 +25,9 @@ public class TesteControlador extends TestCase {
 				new EmailGianTrue(), new EmailGianFalse());
 		assertTrue(contr.initProcesso(proc));
 	}
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> 04b9660670706e72179000758e277402d18c4c51
 }
