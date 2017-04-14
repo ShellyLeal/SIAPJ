@@ -37,5 +37,15 @@ public class Processo {
 	public String getContent() {
 		return Content;
 	}
+	
+	Processo copyProcesso(){
+		Processo copy = new Processo();
+		copy.setContent(this.Content);
+		copy.setEmail(this.Email);
+		copy.setId(this.id);
+		copy.setTelefone(this.Telefone);
+		copy.setNomeReclamante(this.NomeReclamante);
+		return copy;
+	}
 
 }
