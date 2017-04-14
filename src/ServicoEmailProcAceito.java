@@ -1,5 +1,5 @@
 
-public class ServicoEmailProcAceito implements ServicoEmail {
+public class ServicoEmailProcAceito implements IServicoEmail {
 
 	JavaEmailApp app;
 	

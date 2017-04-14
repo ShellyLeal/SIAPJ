@@ -1,15 +1,15 @@
 
 public class ControladorSIAPJ {
 	
-	ValidadorProcesso validador_;
-	RepositorioProcessos repositorio_;
-	ServicoEmail emailTrue_;
-	ServicoEmail emailFalse_;
+	IValidadorProcesso validador_;
+	IRepositorioProcessos repositorio_;
+	IServicoEmail emailTrue_;
+	IServicoEmail emailFalse_;
 	
-	public ControladorSIAPJ(ValidadorProcesso validador, RepositorioProcessos repositorio,
-			ServicoEmail emailTrue, ServicoEmail emailFalse){
+	public ControladorSIAPJ(IValidadorProcesso validador, IRepositorioProcessos repositorio,
+			IServicoEmail emailTrue, IServicoEmail emailFalse){
 		validador_ = validador;
-		repositorio_ = repositorio;
+		repositorio_ =  repositorio;
 		emailTrue_ = emailTrue;
 		emailFalse_ = emailFalse;
 	}

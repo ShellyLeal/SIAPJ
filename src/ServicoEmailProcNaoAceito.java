@@ -1,5 +1,5 @@
 
-public class ServicoEmailProcNaoAceito implements ServicoEmail {
+public class ServicoEmailProcNaoAceito implements IServicoEmail {
 	
 	JavaEmailApp app;
 	

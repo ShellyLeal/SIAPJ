@@ -1,6 +1,6 @@
 import junit.framework.TestCase;
 
-public class TestesRepositorioProcessos extends TestCase {
+public class TesteRepositorioProcessos extends TestCase {
 
 	public void testAdicionarProcesso(){
 		Processo proc = new Processo();

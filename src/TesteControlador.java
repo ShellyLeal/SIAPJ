@@ -10,8 +10,8 @@ public class TesteControlador extends TestCase {
 		proc.setContent("Sequestraram meu amigo imaginário.");
 		proc.setTelefone("0123456789");
 		//Não setou email - é pra dar errado
-		ControladorSIAPJ contr = new ControladorSIAPJ(new ValidadorGian(), new RepositorioGian(),
-				new EmailGianTrue(), new EmailGianFalse());
+		ControladorSIAPJ contr = new ControladorSIAPJ(new ValidadorGian(),
+				new RepositorioGian(),new EmailGianTrue(), new EmailGianFalse());
 		assertFalse(contr.initProcesso(proc));
 	}
 	
@@ -25,9 +25,4 @@ public class TesteControlador extends TestCase {
 				new EmailGianTrue(), new EmailGianFalse());
 		assertTrue(contr.initProcesso(proc));
 	}
-<<<<<<< HEAD
-=======
-	
-	
->>>>>>> 04b9660670706e72179000758e277402d18c4c51
 }

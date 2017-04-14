@@ -1,5 +1,5 @@
 
-public class RepositorioGian implements RepositorioProcessos {
+public class RepositorioGian implements IRepositorioProcessos {
 
 	public boolean addProcesso(Processo processo) {
 		System.out.println("Processo adicionado:\n"

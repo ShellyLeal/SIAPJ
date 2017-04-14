@@ -1,5 +1,5 @@
 
-public class ValidadorGian implements ValidadorProcesso {
+public class ValidadorGian implements IValidadorProcesso {
 
 	public boolean validateProcess(Processo proc) {
 		System.out.println("Processo validado:\n"

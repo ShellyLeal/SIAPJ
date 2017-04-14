@@ -1,5 +1,5 @@
 
-public interface ServicoEmail {
+public interface IServicoEmail {
 	boolean sendEmail(String address);
 
 }

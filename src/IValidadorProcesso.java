@@ -1,5 +1,5 @@
 
-public interface ValidadorProcesso {
+public interface IValidadorProcesso {
 
 	public boolean validateProcess(Processo proc);
 	
