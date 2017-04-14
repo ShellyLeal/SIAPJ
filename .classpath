@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="mailapi.jar"/>
 	<classpathentry kind="lib" path="pop3.jar"/>
 	<classpathentry kind="lib" path="smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriela/Downloads/mockito-all-1.10.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
