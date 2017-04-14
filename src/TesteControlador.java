@@ -3,11 +3,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class TesteControlador extends TestCase {
 
-	/* Testes vão dar errado com classes Gian, que aceitam tudo, por favor mude aqui!!!! */
-	
 	public void testErrado(){
 		Processo proc = new Processo();
 		proc.setNomeReclamante("João");
@@ -15,14 +14,16 @@ public class TesteControlador extends TestCase {
 		proc.setTelefone("0123456789");
 		//Não setou email
 		
-		IValidadorProcesso validador = mock(ValidadorGian.class);
-		IRepositorioProcessos repositorio = mock(RepositorioProcessos.class);
-		IServicoEmail emailAceito = mock(ServicoEmailProcAceito.class);
-		IServicoEmail emailNaoAceito = mock(ServicoEmailProcNaoAceito.class);
+		IValidadorProcesso validador = mock(IValidadorProcesso.class);
+		when(validador.validateProcess(proc)).thenReturn(false);
+		IRepositorioProcessos repositorio = mock(IRepositorioProcessos.class);
+		IServicoEmail emailAceito = mock(IServicoEmail.class);
+		IServicoEmail emailNaoAceito = mock(IServicoEmail.class);
 		
 		ControladorSIAPJ contr = new ControladorSIAPJ(validador, repositorio, emailAceito, 
 				emailNaoAceito);
 		contr.initProcesso(proc);
+	
 		verify(validador, times(1)).validateProcess(proc);
 		verify(repositorio, never()).addProcesso(proc);
 		verify(emailAceito, never()).sendEmail(proc.getEmail());
@@ -36,14 +37,16 @@ public class TesteControlador extends TestCase {
 		proc.setTelefone("99999999");
 		proc.setEmail("roberto@gmail.com");
 		
-		IValidadorProcesso validador = mock(ValidadorGian.class);
-		IRepositorioProcessos repositorio = mock(RepositorioProcessos.class);
-		IServicoEmail emailAceito = mock(ServicoEmailProcAceito.class);
-		IServicoEmail emailNaoAceito = mock(ServicoEmailProcNaoAceito.class);
+		IValidadorProcesso validador = mock(IValidadorProcesso.class);
+		when(validador.validateProcess(proc)).thenReturn(true);
+		IRepositorioProcessos repositorio = mock(IRepositorioProcessos.class);
+		IServicoEmail emailAceito = mock(IServicoEmail.class);
+		IServicoEmail emailNaoAceito = mock(IServicoEmail.class);
 		
 		ControladorSIAPJ contr = new ControladorSIAPJ(validador, repositorio, emailAceito, 
 				emailNaoAceito);
 		contr.initProcesso(proc);
+		
 		verify(validador, times(1)).validateProcess(proc);
 		verify(repositorio, times(1)).addProcesso(proc);
 		verify(emailAceito, times(1)).sendEmail(proc.getEmail());

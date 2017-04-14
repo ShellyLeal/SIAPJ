@@ -1,16 +1,37 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class RepositorioProcessos implements IRepositorioProcessos{
 	
-	HashMap <Integer, Processo> repositorio = new HashMap <Integer, Processo>();
+	private HashMap <Integer, Processo> repositorio = new HashMap <Integer, Processo>();
+	private String folderPath = ".//Processos";
+	private File folder;
+	
+	public RepositorioProcessos(){
+		folder = new File(folderPath);
+		File[] listOfFiles = folder.listFiles();
+		for(int i=0;i<listOfFiles.length;i++){
+			Processo proc = new Processo(listOfFiles[i]);
+			repositorio.put(proc.getId(), proc);
+		}
+	}
 	
 	public boolean addProcesso(Processo processo){
-		int identidade = processo.getId();
+		int id = processo.getId();
 		//Nao armazena processos com mesmo Ids
-		if(repositorio.containsKey(identidade))
+		if(repositorio.containsKey(id))
 			return false;
 		else{
-			repositorio.put(identidade, processo.copyProcesso());
+			repositorio.put(id, processo.copyProcesso());
+			UUID uuid = UUID.randomUUID();
+			try {
+				processo.serialize(folderPath+"//"+uuid.toString()+".txt");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return true;
 		}
 	}
@@ -23,5 +44,4 @@ public class RepositorioProcessos implements IRepositorioProcessos{
 		}
 		else return null;
 	}
-	
 }

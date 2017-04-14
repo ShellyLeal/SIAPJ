@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Processo {
 
@@ -6,6 +13,25 @@ public class Processo {
 	private String Telefone = null;
 	private String Email = null;
 	private String Content = null;
+	
+	public Processo(){}
+	
+	public Processo(File file){
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			id = Integer.parseInt(br.readLine());
+			NomeReclamante = br.readLine();
+			Telefone = br.readLine();
+			Email = br.readLine();
+			Content = "";
+			String line = null;
+			while((line = br.readLine())!=null)
+				Content+=line;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public int getId() {
 		return id;
@@ -61,5 +87,22 @@ public class Processo {
 			return false;
 		return true;
 	}
-
+	
+	public void serialize(String address) throws IOException{
+		FileWriter fw = new FileWriter(address);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		bw.write(String.valueOf(id));
+		bw.newLine();
+		bw.write(NomeReclamante);
+		bw.newLine();
+		bw.write(Telefone);
+		bw.newLine();
+		bw.write(Email+"\n");
+		bw.newLine();
+		bw.write(Content);
+		
+		bw.close();
+		fw.close();
+	}
 }
