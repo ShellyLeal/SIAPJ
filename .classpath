@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry kind="lib" path="activation.jar"/>
-	<classpathentry kind="lib" path="commons-email-1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="commons-email-1.4.jar"/>
-	<classpathentry kind="lib" path="dsn.jar"/>
-	<classpathentry kind="lib" path="imap.jar"/>
-	<classpathentry kind="lib" path="mail.jar"/>
-	<classpathentry kind="lib" path="mailapi.jar"/>
-	<classpathentry kind="lib" path="pop3.jar"/>
-	<classpathentry kind="lib" path="smtp.jar"/>
-	<classpathentry kind="lib" path="src/mockito-all-1.10.19.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/commons-email-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/commons-email-1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/dsn.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/imap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/pop3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJMaven/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Giancarlo/workspace/SIAPJ/bin/mockito-all-1.10.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
